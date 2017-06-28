@@ -1,0 +1,17 @@
+﻿#navBar {
+    position: fixed;
+    width: 100%;
+}
+
+#titleBarSection {
+    background-color: #cfc5c5;
+}
+
+/*nav {
+    background-color: #58a1e8;
+}*/
+
+#titleImg {
+    width: 80%;
+    position: absolute;
+}

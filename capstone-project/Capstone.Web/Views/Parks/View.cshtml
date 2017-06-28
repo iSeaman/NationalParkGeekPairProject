@@ -1,0 +1,23 @@
+﻿@using Capstone.Web.Models;
+@model ParkDailyWeatherViewModel
+
+@{
+    ViewBag.Title = Model.Park.ParkName;
+    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
+}
+
+<section>
+    <div>
+        <img src="@Url.Content("~/img/parks/" + Model.Park.ParkCode + ".jpg")" alt="@Model.Park.ParkName" />
+        <p>@Model.Park.ParkName</p>
+        <p>@Model.Park.ParkDescription</p>
+    </div>
+
+    <div>
+
+    </div>
+
+</section>
+
+
+

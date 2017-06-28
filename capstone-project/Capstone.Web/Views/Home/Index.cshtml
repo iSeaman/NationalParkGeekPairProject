@@ -1,0 +1,21 @@
+﻿@using Capstone.Web.Models;
+@model List<ParkModel>
+
+@{
+    ViewBag.Title = "Home";
+    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
+}
+
+<section>
+    @{ 
+        foreach (ParkModel p in Model)
+        {
+            <div>
+                <img src= "@Url.Content("~/img/parks/" + p.ParkCode + ".jpg")" alt="@p.ParkName"/>
+                <a href=@Url.Action("View", "Parks", new { parkCode = p.ParkCode })><p>@p.ParkName</p></a>
+                <p>@p.ParkDescription</p>
+            </div>
+        }
+    }
+</section>
+

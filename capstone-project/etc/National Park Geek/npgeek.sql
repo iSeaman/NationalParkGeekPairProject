@@ -1,3 +1,7 @@
+CREATE DATABASE natlparkgeek;
+
+USE natlparkgeek;
+
 create table park
 (
 	parkCode varchar(10) not null,
