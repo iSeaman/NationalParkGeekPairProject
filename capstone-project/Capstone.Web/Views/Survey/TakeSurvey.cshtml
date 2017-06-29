@@ -1,0 +1,50 @@
+﻿@using Capstone.Web.Models;
+@model SurveyFormModel
+
+@{
+    ViewBag.Title = "Take Survey";
+    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
+}
+
+<section>
+    <h1>Park Survey</h1>
+
+    @{ 
+        using(Html.BeginForm("TakeSurvey", "Survey", FormMethod.Post))
+        {   
+            // Select Park
+            <div class="surveyFormCtrlGrp">
+                @Html.LabelFor(m => m.ParkCode)
+                @Html.DropDownListFor(m => m.ParkCode, Model.ParkChoices)
+                @Html.ValidationMessageFor(m => m.ParkCode)
+            </div>
+
+            // Enter Email
+            <div class="surveyFormCtrlGrp">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+
+            // Enter State of Residence
+            <div class="surveyFormCtrlGrp">
+                @Html.LabelFor(m => m.State)
+                @Html.DropDownListFor(m => m.State, Model.ParkChoices) *NEED TO CHANGE THIS DROPDOWN SOURCE!!!
+                @Html.ValidationMessageFor(m => m.State)
+            </div>
+
+            // Enter Activity Level
+            <div class="surveyFormCtrlGrp">
+                @{ 
+                    foreach (string activity in Model.ActivityType)
+                    {
+                        <label>@activity</label>
+                        @Html.RadioButtonFor(m => m.ActivityLevel, activity)
+                    }
+                }
+            </div>
+
+            <button>Submit</button>
+        }
+    }
+</section>

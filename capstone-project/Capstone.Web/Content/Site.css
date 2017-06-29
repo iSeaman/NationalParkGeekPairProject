@@ -1,17 +1,27 @@
 ﻿#navBar {
+    margin-top: -280px;
     position: fixed;
     width: 100%;
 }
 
 #titleBarSection {
-    background-color: #cfc5c5;
+    background-color: tan;
 }
 
-/*nav {
+nav {
     background-color: #58a1e8;
-}*/
+}
+
+section {
+    margin-top: 275px
+}
 
 #titleImg {
     width: 80%;
-    position: absolute;
+    margin-top: 50px;
+    position: relative;
+}
+
+.surveyFormCtrlGrp {
+    margin: 2% 0%;
 }

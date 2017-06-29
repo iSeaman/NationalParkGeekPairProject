@@ -21,7 +21,7 @@ namespace Capstone.Web.Controllers
 
         public ActionResult Index()
         {
-            return RedirectToAction("ParkView");
+            return RedirectToAction("View");
         }
 
         public ActionResult View(string parkCode)
@@ -40,6 +40,19 @@ namespace Capstone.Web.Controllers
             };
 
             return View("View", parkWeather);
+        }
+
+        public ActionResult ChangeTempSetting(string parkCode)
+        {
+            if (Session["tempSetting"] as string == "Celsius")
+            {
+                Session["tempSetting"] = "Fahrenheit";
+            }
+            else
+            {
+                Session["tempSetting"] = "Celsius";
+            }
+            return RedirectToAction("View", new { parkCode = parkCode});
         }
     }
 }

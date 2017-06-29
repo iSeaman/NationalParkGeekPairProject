@@ -138,6 +138,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ParksController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="DAL\IParkDAL.cs" />
     <Compile Include="DAL\ISurveyDAL.cs" />
     <Compile Include="DAL\IWeatherDAL.cs" />
@@ -161,6 +162,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Parks\View.cshtml" />
+    <Content Include="Views\Survey\TakeSurvey.cshtml" />
+    <Content Include="Views\Survey\Results.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

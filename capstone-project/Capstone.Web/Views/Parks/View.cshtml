@@ -4,13 +4,80 @@
 @{
     ViewBag.Title = Model.Park.ParkName;
     Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
+    Dictionary<string, string> weatherInstruct = new Dictionary<string, string>()
+    {
+        {"snow", "Pack some snowshoes for your snow-bunnies!" },
+        {"rain", "If !Duck, pack gear & waterproof shoes!" },
+        {"thunderstorms", "Seek shelter - avoid hiking on exposed ridges!" },
+        {"sunny", "Don't be a fool, stay cool and pack sunblock!" },
+        {"cloudy", "Great day for cloud-sculpting - have fun out there!" },
+        {"partlyCloudy", "Never gonna give you sunburn, never gonna make you fry..." }
+    };
 }
 
 <section>
     <div>
         <img src="@Url.Content("~/img/parks/" + Model.Park.ParkCode + ".jpg")" alt="@Model.Park.ParkName" />
-        <p>@Model.Park.ParkName</p>
+        <h1>@Model.Park.ParkName</h1>
         <p>@Model.Park.ParkDescription</p>
+    </div>
+
+    <div>
+        @{ 
+            string currentTempSetting = Session["tempSetting"] as string;
+            string tempChangeLabel = currentTempSetting == "Fahrenheit" ? "CHANGE TEMPS TO CELSIUS" : "CHANGE TEMPS TO FAHRENHEIT";
+            List<DailyWeatherModel> userChoiceForecast = new List<DailyWeatherModel>();
+            double maxHighTemp = 75.0;
+            double minLowTemp = 20.0;
+            double maxTempRange = 20.0;
+            if (currentTempSetting == "Fahrenheit")
+            {
+                userChoiceForecast = Model.FiveDayForecast;
+            }
+            else
+            {
+                userChoiceForecast = Model.CelsiusFiveDayForecast;
+                maxHighTemp = 23.89;
+                minLowTemp = -6.67;
+                maxTempRange = 6.67;
+            }
+        }
+        <div>
+            <h2>Today</h2>
+            @{
+                string todaysForecast = userChoiceForecast[0].Forecast;
+                if (todaysForecast == "partly cloudy")
+                {
+                    todaysForecast = "partlyCloudy";
+                }
+                int todaysHigh = userChoiceForecast[0].HighTemp;
+                int todaysLow = userChoiceForecast[0].LowTemp;
+                string hotMessage = todaysHigh > maxHighTemp ? " Gonna be a scorcher - bring an extra gallon of water!" : "";
+                string tempFluxMessage = todaysHigh - todaysLow > maxTempRange ? " Wear breathable layers today - gonna be a wild weather ride!" : "";
+                string coldMessage = todaysLow < minLowTemp ? " WARNING - know the dangers of exposure to frigid temps!" : "";
+
+            }
+            <img src=@Url.Content("~/img/weather/" + todaysForecast + ".png") alt="@todaysForecast" />
+            <h3>High <span>@todaysHigh°</span>  Low <span>@todaysLow°</span></h3>
+            <p>@weatherInstruct[todaysForecast]@hotMessage@tempFluxMessage@coldMessage</p>
+        </div>
+        <a href=@Url.Action("ChangeTempSetting", "Parks", new {parkCode = Model.Park.ParkCode})>@tempChangeLabel</a>
+        <div>
+            @for (int i = 1; i < userChoiceForecast.Count; i++)
+            {
+                string dailyForecast = userChoiceForecast[i].Forecast;
+                if (dailyForecast == "partly cloudy")
+                {
+                    dailyForecast = "partlyCloudy";
+                }
+                <div>
+                    <img src=@Url.Content("~/img/weather/" + dailyForecast + ".png") alt="@todaysForecast" />
+                    <h3>High <span>@userChoiceForecast[i].HighTemp°</span></h3>
+                    <h3>Low <span>@userChoiceForecast[i].LowTemp°</span></h3>
+                </div>
+            }
+        </div>
+
     </div>
 
     <div>

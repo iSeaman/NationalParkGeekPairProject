@@ -22,6 +22,7 @@ namespace Capstone.Web.Controllers
         // GET: Home/Index
         public ActionResult Index()
         {
+            Session["tempSetting"] = "Fahrenheit";
             List<ParkModel> allParks = parkDAL.GetAllParks();
             return View("Index", allParks);
         }

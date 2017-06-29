@@ -10,38 +10,35 @@ namespace Capstone.Web.Models
     public class SurveyFormModel
     {
         // VARIABLES
-        private List<SelectListItem> parkChoices;
-        private List<SelectListItem> stateChoices;
+        private static List<SelectListItem> parkChoices;
+        private static List<SelectListItem> stateChoices;
 
-        // CONSTRUCTOR
-        public SurveyFormModel(List<ParkModel> parks, List<string> states)
-        {
-            parkChoices = CreateParkChoices(parks);
-            stateChoices = CreateStateChoices(states);
-        }
-        
         // PROPERTIES
         public int SurveyID { get; set; }
 
         // Email Address
         [Required(ErrorMessage = "*Required Field")]
+        [Display(Name = "Your Email Address")]
         [DataType(DataType.EmailAddress, ErrorMessage = "Please enter a valid email address")]
         public string Email { get; set; }
 
         // State
         [Required(ErrorMessage = "*Required Field")]
+        [Display(Name = "State of Residence")]
         public string State { get; set; }
-        public List<SelectListItem> StateChoices
+        public static List<SelectListItem> StateChoices
         {
             get { return stateChoices; }
         }
 
         // Park
         [Required(ErrorMessage = "*Required Field")]
+        [Display(Name = "Favorite Park")]
         public string ParkCode { get; set; }
+        public List<ParkModel> AvailableParks { get; set; }
         public List<SelectListItem> ParkChoices
         {
-            get { return parkChoices; }
+            get { return CreateParkChoices(AvailableParks); }
         }
 
         // Activity Level
@@ -53,7 +50,7 @@ namespace Capstone.Web.Models
         };
 
         // METHODS
-        public List<SelectListItem> CreateParkChoices (List<ParkModel> parks)
+        private List<SelectListItem> CreateParkChoices (List<ParkModel> parks)
         {
             List<SelectListItem> choices = new List<SelectListItem>();
 
@@ -65,7 +62,7 @@ namespace Capstone.Web.Models
             return choices;
         }
 
-        public List<SelectListItem> CreateStateChoices (List<string> states)
+        private List<SelectListItem> CreateStateChoices (List<string> states)
         {
             List<SelectListItem> stateChoices = new List<SelectListItem>();
 
