@@ -1,8 +1,14 @@
 ﻿#navBar {
+    font-family: "Bevan";
     margin-top: -280px;
     position: fixed;
     width: 100%;
 }
+
+#navBar :hover {
+    color: #20a231;
+}
+
 
 #titleBarSection {
     background-color: tan;
@@ -13,6 +19,7 @@ nav {
 }
 
 section {
+    font-family: "Cabin Sketch";
     margin-top: 275px
 }
 
@@ -24,4 +31,28 @@ section {
 
 .surveyFormCtrlGrp {
     margin: 2% 0%;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: "Cabin Sketch";
+    src: url("//fonts.googleapis.com/css?family=Cabin+Sketch");
+}
+
+@font-face {
+    font-family: "Bevan";
+    src: url("//fonts.googleapis.com/css?family=Bevan");
+}
+
+a {
+    text-decoration: none;
+}
+
+a :hover {
+    color: #20a231;
 }

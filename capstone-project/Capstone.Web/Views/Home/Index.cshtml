@@ -12,7 +12,7 @@
         {
             <div>
                 <img src= "@Url.Content("~/img/parks/" + p.ParkCode + ".jpg")" alt="@p.ParkName"/>
-                <a href=@Url.Action("View", "Parks", new { parkCode = p.ParkCode })><p>@p.ParkName</p></a>
+                <a href=@Url.Action("View", "Parks", new { parkCode = p.ParkCode })><h1>@p.ParkName</h1></a>
                 <p>@p.ParkDescription</p>
             </div>
         }

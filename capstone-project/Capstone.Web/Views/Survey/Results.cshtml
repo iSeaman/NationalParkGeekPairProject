@@ -20,13 +20,15 @@
                 <h2>@p.ParkName  -  # Of Completed Surveys: @result.NumSurveys</h2>
             </div>
 
-            <div>
+            <div class="flex-container">
                 <h2>Activity Level Votes</h2>
-                <h3>Inactive: @result.NumInactive</h3>
-                <h3>Sedentary: @result.NumSedentary</h3>
-                <h3>Active: @result.NumActive</h3>
-                <h3>Extremely Active: @result.NumExtremelyActive</h3>
-            </div>
+                <div class="flex-container">
+                    <h3>Inactive: @result.NumInactive</h3>
+                    <h3>Sedentary: @result.NumSedentary</h3>
+                    <h3>Active: @result.NumActive</h3>
+                    <h3>Extremely Active: @result.NumExtremelyActive</h3>
+                </div>
+                </div>
         }
     }
 </section>
