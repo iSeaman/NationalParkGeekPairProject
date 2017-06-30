@@ -14,7 +14,6 @@ namespace Capstone.Web.DAL
         const string SQL_GetPark = "SELECT * FROM park WHERE parkCode = @parkCode;";
         const string SQL_GetAllParkStates = "SELECT state FROM park GROUP BY state;";
 
-
         public ParkSqlDAL(string connectionString)
         {
             this.connectionString = connectionString;

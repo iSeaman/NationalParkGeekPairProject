@@ -9,9 +9,60 @@ namespace Capstone.Web.Models
 {
     public class SurveyFormModel
     {
-        // VARIABLES
-        private static List<SelectListItem> parkChoices;
-        private static List<SelectListItem> stateChoices;
+        // VARIABLE
+        private List<string> states = new List<string>()
+        {
+            "Alabama",
+            "Alaska",
+            "Arizona",
+            "Arkansas",
+            "California",
+            "Colorado",
+            "Connecticut",
+            "Delaware",
+            "Florida",
+            "Georgia",
+            "Hawaii",
+            "Idaho",
+            "Illinois",
+            "Indiana",
+            "Iowa",
+            "Kansas",
+            "Kentucky",
+            "Louisiana",
+            "Maine",
+            "Maryland",
+            "Massachusetts",
+            "Michigan",
+            "Minnesota",
+            "Mississippi",
+            "Missouri",
+            "Montana",
+            "Nebraska",
+            "Nevada",
+            "New Hampshire",
+            "New Jersey",
+            "New Mexico",
+            "New York",
+            "North Carolina",
+            "North Dakota",
+            "Ohio",
+            "Oklahoma",
+            "Oregon",
+            "Pennsylvania",
+            "Rhode Island",
+            "South Carolina",
+            "South Dakota",
+            "Tennessee",
+            "Texas",
+            "Utah",
+            "Vermont",
+            "Virginia",
+            "Washington",
+            "West Virginia",
+            "Wisconsin",
+            "Wyoming"
+        };
 
         // PROPERTIES
         public int SurveyID { get; set; }
@@ -26,9 +77,9 @@ namespace Capstone.Web.Models
         [Required(ErrorMessage = "*Required Field")]
         [Display(Name = "State of Residence")]
         public string State { get; set; }
-        public static List<SelectListItem> StateChoices
+        public List<SelectListItem> StateChoices
         {
-            get { return stateChoices; }
+            get { return CreateStateChoices(); }
         }
 
         // Park
@@ -62,7 +113,7 @@ namespace Capstone.Web.Models
             return choices;
         }
 
-        private List<SelectListItem> CreateStateChoices (List<string> states)
+        private List<SelectListItem> CreateStateChoices ()
         {
             List<SelectListItem> stateChoices = new List<SelectListItem>();
 

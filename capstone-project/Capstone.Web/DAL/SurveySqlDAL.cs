@@ -19,6 +19,7 @@ namespace Capstone.Web.DAL
             this.connectionString = connectionString;
         }
 
+
         public SurveyResultModel GetParkSurveyResults(string parkCode)
         {
             try
@@ -43,19 +44,20 @@ namespace Capstone.Web.DAL
                     {
                         string finalQuery = SQL_GetParkActivityCount + "'" + s + "';";
                         cmd = new SqlCommand(finalQuery, conn);
+                        cmd.Parameters.AddWithValue("parkCode", parkCode);
                         activityTypeCount[s] = Convert.ToInt32(cmd.ExecuteScalar());
                     }
 
                     // Populate and return SurveyResultModel
-                    SurveyResultModel completedSurvey = new SurveyResultModel();
-                    completedSurvey.ParkCode = parkCode;
-                    completedSurvey.NumSurveys = surveyCount;
-                    completedSurvey.NumInactive = activityTypeCount["inactive"];
-                    completedSurvey.NumSedentary = activityTypeCount["sedentary"];
-                    completedSurvey.NumActive = activityTypeCount["active"];
-                    completedSurvey.NumExtremelyActive = activityTypeCount["extremely active"];
+                    SurveyResultModel completedSurveyResult = new SurveyResultModel();
+                    completedSurveyResult.ParkCode = parkCode;
+                    completedSurveyResult.NumSurveys = surveyCount;
+                    completedSurveyResult.NumInactive = activityTypeCount["inactive"];
+                    completedSurveyResult.NumSedentary = activityTypeCount["sedentary"];
+                    completedSurveyResult.NumActive = activityTypeCount["active"];
+                    completedSurveyResult.NumExtremelyActive = activityTypeCount["extremely active"];
 
-                    return completedSurvey;
+                    return completedSurveyResult;
                 }
             }
             catch (SqlException)

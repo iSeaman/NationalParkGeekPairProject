@@ -1,17 +1,32 @@
-﻿@{
-    Layout = null;
+﻿@using Capstone.Web.Models;
+@model ParkSurveyResultViewModel
+
+@{
+    ViewBag.Title = "Survey Results";
+    Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
 }
 
-<!DOCTYPE html>
+<section>
+    <h1>Park User Survey Results</h1>
+    <p>The following survey results are based on park users' input.  We hope you had an enjoyable experience!  Tell your friends!</p>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
-    </div>
-</body>
-</html>
+    @{ 
+        foreach (SurveyResultModel result in Model.ParksSurveyResults)
+        {
+            ParkModel p = Model.ParksDict[result.ParkCode];
+            
+            <div>
+                <img src="@Url.Content("~/img/parks/" + p.ParkCode + ".jpg")" alt="@p.ParkName" />
+                <h2>@p.ParkName  -  # Of Completed Surveys: @result.NumSurveys</h2>
+            </div>
+
+            <div>
+                <h2>Activity Level Votes</h2>
+                <h3>Inactive: @result.NumInactive</h3>
+                <h3>Sedentary: @result.NumSedentary</h3>
+                <h3>Active: @result.NumActive</h3>
+                <h3>Extremely Active: @result.NumExtremelyActive</h3>
+            </div>
+        }
+    }
+</section>

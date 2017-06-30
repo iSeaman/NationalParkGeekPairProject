@@ -7,7 +7,7 @@ namespace Capstone.Web.Models
 {
     public class ParkSurveyResultViewModel
     {
-        public Dictionary<string, SurveyResultModel> ParkSurveyResults { get; set; }
-        public Dictionary<string, ParkModel> AllParks { get; set; }
+        public List<SurveyResultModel> ParksSurveyResults { get; set; }
+        public Dictionary<string, ParkModel> ParksDict { get; set; }
     }
 }

@@ -29,17 +29,20 @@
             // Enter State of Residence
             <div class="surveyFormCtrlGrp">
                 @Html.LabelFor(m => m.State)
-                @Html.DropDownListFor(m => m.State, Model.ParkChoices) *NEED TO CHANGE THIS DROPDOWN SOURCE!!!
+                @Html.DropDownListFor(m => m.State, Model.StateChoices)
                 @Html.ValidationMessageFor(m => m.State)
             </div>
 
             // Enter Activity Level
             <div class="surveyFormCtrlGrp">
+                <h4>Activity Level  @Html.ValidationMessageFor(m => m.ActivityLevel)</h4>
                 @{ 
                     foreach (string activity in Model.ActivityType)
                     {
-                        <label>@activity</label>
-                        @Html.RadioButtonFor(m => m.ActivityLevel, activity)
+                        <div>
+                            @Html.RadioButtonFor(m => m.ActivityLevel, activity)
+                            <label>@activity</label>
+                        </div>
                     }
                 }
             </div>

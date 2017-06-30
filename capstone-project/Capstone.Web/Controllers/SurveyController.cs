@@ -39,7 +39,9 @@ namespace Capstone.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("TakeSurvey");
+                List<ParkModel> parks = parkDAL.GetAllParks();
+                survey.AvailableParks = parks;
+                return View("TakeSurvey", survey);
             }
             surveyDAL.SaveSurveyForm(survey);
             return RedirectToAction("Results");
@@ -47,7 +49,27 @@ namespace Capstone.Web.Controllers
 
         public ActionResult Results()
         {
-            return View("Results");
+            List<ParkModel> parks = parkDAL.GetAllParks();
+            Dictionary<string, ParkModel> parksDict = new Dictionary<string, ParkModel>();
+            List<SurveyResultModel> parksSurveyResults = new List<SurveyResultModel>();
+
+            foreach (ParkModel park in parks)
+            {
+                // Add key-value pair to parksDict
+                parksDict[park.ParkCode] = park;
+
+                // Add to parksSurveyResults
+                SurveyResultModel results = surveyDAL.GetParkSurveyResults(park.ParkCode);
+                if (results.NumSurveys >= 1)
+                {
+                    parksSurveyResults.Add(results);
+                }
+            }
+
+            ParkSurveyResultViewModel surveySummaries = new ParkSurveyResultViewModel();
+            surveySummaries.ParksDict = parksDict;
+            surveySummaries.ParksSurveyResults = parksSurveyResults.OrderBy(p => p.NumSurveys).Reverse().ToList();
+            return View("Results", surveySummaries);
         }
 
     }
