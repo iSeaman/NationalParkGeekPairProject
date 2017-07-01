@@ -1,44 +1,166 @@
-﻿#navBar {
-    font-family: "Bevan";
-    margin-top: -280px;
-    position: fixed;
-    width: 100%;
+﻿/* SITE BACKGROUND IMAGE */
+
+html {
+    background-image: url(../img/mapBackground.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
 
-#navBar :hover {
-    color: #20a231;
-}
+/* NAVIGATION BAR */
 
-
-#titleBarSection {
-    background-color: tan;
+body {
+    margin: 0;
+    padding: 0;
 }
 
 nav {
-    background-color: #58a1e8;
+    background-color: #9bbb59;
+    position: fixed;
+    text-align: center;
+    top: 0%;
+    width: 100%;
+    height: 10%;
+    box-shadow: 0px 10px 5px 5px rgba(0, 0, 0, 0.45);
 }
 
-section {
-    font-family: "Cabin Sketch";
-    margin-top: 275px
+    nav a {
+        font-family: "Bevan";
+        font-size: 175%;
+        display: block;
+        padding: 8px;
+        color: white;
+        margin: 4% 1%;
+    }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
-#titleImg {
-    width: 80%;
-    margin-top: 50px;
-    position: relative;
+li {
+    float: right;
+    margin-right: 3%;
+    text-shadow: 0px 2px 3px rgba(24, 22, 22, 0.82);
 }
 
-.surveyFormCtrlGrp {
-    margin: 2% 0%;
+#navIcon {
+    float: left;
+    display: block;
+    margin: 10px 10px;
+    max-height: 80%;
 }
 
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+/* FOOTER */
+footer {
+    margin: 5%;
 }
 
+    footer p {
+        background-color: #9bbb59;
+        font-weight: bold;
+        font-size: 135%;
+        color: beige;
+        text-shadow: 0px -1px 5px rgb(11, 11, 11);
+        text-transform: uppercase;
+        padding: 1% 3%;
+    }
+
+/* "HOME" PAGE */
+#homePgMainImg {
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: auto;
+    max-width: 90%;
+}
+
+/* "VIEW" PAGE*/
+#viewImg {
+    display: inline-block;
+    vertical-align: top;
+    border: 10px groove rgba(73, 101, 14, 0.69);
+    max-width: 40%;
+}
+
+#viewNameAndDescript {
+    display: inline-block;
+    margin: 0% 2% 0% 5%;
+    max-width: 45%;
+    font-size: 125%;
+    vertical-align: top;
+}
+
+#viewNameAndDescript h1 {
+    margin: 0px auto auto auto;
+    font-size: 150%
+}
+
+#viewHrBar {
+    border-top: 2px solid rgb(208, 208, 150);
+    box-shadow: 0px 2px 5px 1px rgba(168, 168, 123, 0.81);
+    margin: 4% 0%;
+}
+
+a#tempChange {
+    background-image: url(/img/barkTexture.jpg);
+    font-size: larger;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(24, 22, 22, 0.82);
+    padding: 8px;
+    border-radius: 5px;
+    border: 3px double darkgreen;
+    box-shadow: inset 0 0 10px yellow;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+#todaysWeather, #weatherForWeek, #forecastTitle {
+    display: inline-block;
+}
+
+
+#todaysWeather {
+    display: inline-block;
+    background-color: #87efe9;
+    border-radius: 20px;
+    border: 2px solid #138dc2;
+    box-shadow: 2px 5px 5px 5px rgba(14, 113, 156, 0.68);
+    text-align: center;
+    margin: 0px 20px;
+    max-width: 30%;
+}
+
+#todaysWeather p {
+    margin: 5% 5%;
+}
+
+#weatherForWeek {
+    max-width: 60%;
+    vertical-align: top;
+}
+
+#weatherForWeek div {
+    display: inline-block;
+    background-color: #87efe9;
+    border-radius: 20px;
+    border: 2px solid #138dc2;
+    box-shadow: 2px 5px 5px 5px rgba(14, 113, 156, 0.68);
+    text-align: center;
+    max-width: 24%;
+}
+
+#weatherForWeek img {
+    max-width: 70%;
+}
+
+/* ACROSS PAGES */
 @font-face {
     font-family: "Cabin Sketch";
     src: url("//fonts.googleapis.com/css?family=Cabin+Sketch");
@@ -53,6 +175,49 @@ a {
     text-decoration: none;
 }
 
-a :hover {
+a:hover {
     color: #20a231;
+}
+
+section {
+    background-color: beige;
+    font-family: "Cabin Sketch";
+    border-radius: 20px;
+    padding: 3%;
+    margin: 5%;
+}
+
+pre {
+    font-size: 200%;
+    border-radius: 20px;
+    font-family: "Bevan";
+    background-color: rgba(73, 101, 14, 0.69);
+    color: rgba(245, 245, 220, 0.83);
+    margin: 0 auto;
+    text-align: center;
+    text-shadow: rgb(128, 128, 128);
+    font-variant: small-caps;
+    max-width: 60%;
+}
+
+.pageTitle {
+    font-weight: bold;
+    font-family: "Cabin Sketch";
+    text-align: center;
+    margin: 2%;
+    font-size: 300%;
+}
+
+.surveyFormCtrlGrp {
+    margin: 2% 0%;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+p {
+    font-size: 100%;
 }

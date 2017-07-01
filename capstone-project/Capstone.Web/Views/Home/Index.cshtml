@@ -6,7 +6,15 @@
     Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
 }
 
+<img id="homePgMainImg" src="~/img/homePageMainImg.png" alt="National Park Geek">
+<pre>
+"Do not go where the path may lead; go instead
+where there is no path and leave a trail."
+~ Ralph Waldo Emerson
+</pre>
+
 <section>
+    <h1 class="pageTitle">PARKS</h1>
     @{ 
         foreach (ParkModel p in Model)
         {
