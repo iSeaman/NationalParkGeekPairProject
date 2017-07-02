@@ -15,13 +15,15 @@ where there is no path and leave a trail."
 
 <section>
     <h1 class="pageTitle">PARKS</h1>
-    @{ 
+    @{
         foreach (ParkModel p in Model)
         {
             <div>
-                <img src= "@Url.Content("~/img/parks/" + p.ParkCode + ".jpg")" alt="@p.ParkName"/>
-                <a href=@Url.Action("View", "Parks", new { parkCode = p.ParkCode })><h1>@p.ParkName</h1></a>
-                <p>@p.ParkDescription</p>
+                <img id="viewImg" src="@Url.Content("~/img/parks/" + p.ParkCode + ".jpg")" alt="@p.ParkName" />
+                <div id="viewNameAndDescript">
+                    <a href=@Url.Action("View", "Parks", new { parkCode = p.ParkCode })><h1>@p.ParkName</h1></a>
+                    <p>@p.ParkDescription</p>
+                </div>
             </div>
         }
     }

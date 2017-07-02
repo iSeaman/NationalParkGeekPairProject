@@ -6,7 +6,7 @@
     Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
 }
 
-<section>
+<section id="surveyfont">
     <h1>Park Survey</h1>
 
     @{ 
@@ -39,9 +39,10 @@
                 @{ 
                     foreach (string activity in Model.ActivityType)
                     {
-                        <div>
+                        <div id="viewActivityLevelButton">
                             @Html.RadioButtonFor(m => m.ActivityLevel, activity)
-                            <label>@activity</label>
+                            <label><img id="viewActivityImg" src="@Url.Content("~/img/" + activity + ".png")" alt="@activity" />
+                            @activity</label>
                         </div>
                     }
                 }

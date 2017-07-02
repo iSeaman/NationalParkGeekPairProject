@@ -6,29 +6,31 @@
     Layout = Url.Content("~/Views/Shared/_Layout.cshtml");
 }
 
-<section>
+<section id="surveyfont">
     <h1>Park User Survey Results</h1>
     <p>The following survey results are based on park users' input.  We hope you had an enjoyable experience!  Tell your friends!</p>
 
-    @{ 
+    @{
         foreach (SurveyResultModel result in Model.ParksSurveyResults)
         {
             ParkModel p = Model.ParksDict[result.ParkCode];
-            
+
             <div>
-                <img src="@Url.Content("~/img/parks/" + p.ParkCode + ".jpg")" alt="@p.ParkName" />
-                <h2>@p.ParkName  -  # Of Completed Surveys: @result.NumSurveys</h2>
+                <img id="viewParkImgSurvey" src="@Url.Content("~/img/parks/" + p.ParkCode + ".jpg")" alt="@p.ParkName" />
+                <h2>@p.ParkName</h2>
+                <h2># Of Completed Surveys:  @result.NumSurveys</h2>
             </div>
 
             <div class="flex-container">
                 <h2>Activity Level Votes</h2>
-                <div class="flex-container">
-                    <h3>Inactive: @result.NumInactive</h3>
-                    <h3>Sedentary: @result.NumSedentary</h3>
-                    <h3>Active: @result.NumActive</h3>
-                    <h3>Extremely Active: @result.NumExtremelyActive</h3>
+                <div id="viewActivityLevelButton">
+                    <h3><img id="viewActivityImg" src="@Url.Content("~/img/Inactive.png")" alt="Inactive.png" /> Inactive: @result.NumInactive</h3>
+                    <h3><img id="viewActivityImg" src="@Url.Content("~/img/Sedentary.png")" alt="Inactive.png" /> Sedentary: @result.NumSedentary</h3>
+                    <h3><img id="viewActivityImg" src="@Url.Content("~/img/Active.png")" alt="Inactive.png" /> Active: @result.NumActive</h3>
+                    <h3><img id="viewActivityImg" src="@Url.Content("~/img/ExtremelyActive.png")" alt="Inactive.png" /> Extremely Active: @result.NumExtremelyActive</h3>
                 </div>
-                </div>
+            </div>
         }
     }
 </section>
+

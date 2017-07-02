@@ -109,11 +109,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
+    <Content Include="img\Active.png" />
     <Content Include="img\backpack.png" />
     <Content Include="img\backpack2.jpg" />
     <Content Include="img\barkTexture.jpg" />
+    <Content Include="img\ExtremelyActive.png" />
     <Content Include="img\geek.png" />
     <Content Include="img\homePageMainImg.png" />
+    <Content Include="img\inactivePeeps.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\mapBackground.jpg" />
     <Content Include="img\parks\cvnp.jpg" />
@@ -127,7 +130,9 @@
     <Content Include="img\parks\ynp.jpg" />
     <Content Include="img\parks\ynp2.jpg" />
     <Content Include="img\pineTreeIcon.png" />
+    <Content Include="img\RickRoll.png" />
     <Content Include="img\scenery.png" />
+    <Content Include="img\Sedentary.png" />
     <Content Include="img\weather\cloudy.png" />
     <Content Include="img\weather\partlyCloudy.png" />
     <Content Include="img\weather\rain.png" />
@@ -135,6 +140,7 @@
     <Content Include="img\weather\sunny.png" />
     <Content Include="img\weather\thunderstorms.png" />
     <Content Include="Global.asax" />
+    <Content Include="img\Inactive.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
